@@ -3,65 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شركة الفاير لأنظمة الحريق</title>
-    <!-- خطوط جوجل لشكل احترافي -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>الخبير لأنظمة إطفاء الحريق</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background: #d32f2f; color: white; padding: 60px 20px; text-align: center; }
-        header h1 { margin: 0; font-size: 2.5rem; }
-        header p { font-size: 1.2rem; margin-top: 10px; }
+        :root { --main-color: #e63946; --dark-color: #1d3557; --accent-color: #f1faee; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background-color: #f8f9fa; color: #333; scroll-behavior: smooth; }
         
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        /* هيدر فخم */
+        header { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/3321793/pexels-photo-3321793.jpeg'); background-size: cover; background-position: center; color: white; padding: 100px 20px; text-align: center; border-bottom: 5px solid var(--main-color); }
+        header h1 { font-size: 3.5rem; margin: 0; font-weight: 900; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header p { font-size: 1.5rem; margin-top: 15px; color: #ccc; }
+
+        .container { max-width: 1100px; margin: -50px auto 40px; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; }
         
-        .section-title { border-right: 5px solid #d32f2f; padding-right: 15px; margin: 40px 0 20px; color: #d32f2f; }
+        .section-title { text-align: center; font-size: 2rem; color: var(--main-color); margin-bottom: 40px; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 4px; background: var(--main-color); margin: 10px auto; }
+
+        /* كروت الخدمات */
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .service-card { background: #fff; padding: 30px; border-radius: 12px; border: 1px solid #eee; transition: all 0.4s ease; text-align: center; }
+        .service-card:hover { transform: translateY(-10px); border-color: var(--main-color); box-shadow: 0 15px 35px rgba(230, 57, 70, 0.1); }
+        .service-card h3 { color: var(--dark-color); font-size: 1.5rem; margin-bottom: 15px; }
         
-        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-        .service-card { background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; transition: 0.3s; }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 6px 12px rgba(0,0,0,0.15); }
-        .service-card i { font-size: 40px; color: #d32f2f; }
-        
-        .contact-btn { display: inline-block; background: #25d366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; }
-        .contact-btn:hover { background: #128c7e; }
-        
-        footer { text-align: center; padding: 20px; background: #333; color: white; margin-top: 50px; }
+        /* زرار الواتساب */
+        .cta-box { text-align: center; margin-top: 50px; padding: 40px; background: #f1f1f1; border-radius: 12px; }
+        .whatsapp-btn { display: inline-block; background: #25d366; color: white; padding: 18px 40px; text-decoration: none; border-radius: 50px; font-size: 1.3rem; font-weight: bold; transition: 0.3s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+        .whatsapp-btn:hover { background: #128c7e; transform: scale(1.05); }
+
+        footer { text-align: center; padding: 30px; background: var(--dark-color); color: white; font-size: 1rem; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>شركة الفاير لأنظمة الأمان والحريق</h1>
-    <p>خبراء في حماية المنشآت بأحدث تقنيات الإطفاء والإنذار</p>
+    <h1>الخبير لأنظمة إطفاء الحريق</h1>
+    <p>أمانك مسؤوليتنا.. نؤمن منشأتك بأحدث تكنولوجيا السلامة</p>
 </header>
 
 <div class="container">
-    <h2 class="section-title">خدماتنا الرئيسية</h2>
+    <h2 class="section-title">خدماتنا المتميزة</h2>
     <div class="services">
         <div class="service-card">
-            <h3>🔥 أنظمة الإطفاء</h3>
-            <p>تركيب وصيانة طفايات الحريق وشبكات الرش الآلي بأعلى معايير الجودة.</p>
+            <h3>🧯 أنظمة الإطفاء الآلية</h3>
+            <p>تصميم وتركيب شبكات الرشاشات المائية وأنظمة الإطفاء بالغاز (FM200) بأعلى كفاءة.</p>
         </div>
         <div class="service-card">
-            <h3>📢 أنظمة الإنذار</h3>
-            <p>تركيب كواشف الدخان والحرارة ولوحات التحكم الذكية للإنذار المبكر.</p>
+            <h3>📡 أنظمة الإنذار المبكر</h3>
+            <p>كواشف دخان وحرارة ذكية متصلة بلوحات تحكم مركزية لضمان سرعة الاستجابة.</p>
         </div>
         <div class="service-card">
-            <h3>🛠️ صيانة دورية</h3>
-            <p>عقود صيانة معتمدة لضمان جاهزية الأنظمة في حالات الطوارئ.</p>
+            <h3>🛠️ صيانة وتوريد</h3>
+            <p>توريد طفايات حريق معتمدة وعقود صيانة دورية لضمان سلامة المنشأة 24/7.</p>
         </div>
     </div>
 
-    <h2 class="section-title">لماذا نحن؟</h2>
-    <p>نحن نوفر حلولاً متكاملة معتمدة من الدفاع المدني، ونضمن لعملائنا أقصى درجات الأمان من خلال فريق عمل محترف وخبرة تمتد لسنوات في السوق المصري.</p>
-
-    <div style="text-align: center; margin-top: 40px;">
-        <h3>لطلب معاينة أو استشارة فنية:</h3>
-        <a href="https://wa.me/2010 29596649" class="contact-btn">تواصل معنا عبر واتساب 💬</a>
+    <div class="cta-box">
+        <h3>هل تبحث عن تأمين شامل لمنشأتك؟</h3>
+        <p>تواصل مع فريق الخبراء الآن للحصول على معاينة مجانية</p>
+        <a href="https://wa.me/201234567890" class="whatsapp-btn">تحدث مع الخبير عبر واتساب 💬</a>
     </div>
 </div>
 
 <footer>
-    <p>جميع الحقوق محفوظة لشركة الفاير &copy; 2026</p>
+    <p>جميع الحقوق محفوظة لشركة الخبير لأنظمة الحريق &copy; 2026</p>
+    <p style="font-size: 0.8rem; margin-top: 10px; color: #aaa;">تطوير مصطفى محمد (Desha)</p>
 </footer>
 
 </body>
