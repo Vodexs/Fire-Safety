@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM LUKA.Fire | رمسيس - أنظمة السلامة</title>
+    <title>MKM LUKA.Fire | رمسيس - القاهرة</title>
     
-    <!-- الخطوط والمكتبات الخارجية -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
-        :root { --primary: #ff4b2b; --secondary: #ff416c; --dark: #0f0f0f; --glass: rgba(255, 255, 255, 0.1); }
+        :root { --primary: #ff4b2b; --dark: #0f0f0f; --glass: rgba(255, 255, 255, 0.1); }
         * { box-sizing: border-box; }
         body { font-family: 'Cairo', sans-serif; margin: 0; background: #050505; color: white; scroll-behavior: smooth; overflow-x: hidden; }
 
@@ -21,41 +20,30 @@
 
         .container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
-        /* الهيدر */
         nav { padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: 0.5s; }
         .nav-blur { background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
         .nav-flex { display: flex; justify-content: space-between; align-items: center; }
         .logo-box { display: flex; align-items: center; gap: 15px; }
         .logo-box img { height: 65px; border-radius: 12px; border: 2px solid var(--primary); }
 
-        /* الهيرو سكشن */
         .hero { height: 100vh; display: flex; align-items: center; text-align: center; 
                 background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG-20260504-WA0023.jpg'); 
                 background-size: cover; background-attachment: fixed; background-position: center; }
         .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 0; line-height: 1.1; 
                    background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-        /* السلايدر */
         .swiper { width: 100%; padding: 50px 0; }
-        .swiper-slide { 
-            width: 320px; height: 400px; border-radius: 25px; overflow: hidden; 
-            border: 2px solid var(--glass); box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
-        }
+        .swiper-slide { width: 320px; height: 400px; border-radius: 25px; overflow: hidden; border: 2px solid var(--glass); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* الخريطة المعدلة لرمسيس */
-        .map-container { border-radius: 30px; overflow: hidden; border: 2px solid var(--glass); height: 450px; margin: 40px 0; background: #111; }
-        iframe { width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1) contrast(1.1); }
+        /* تعديل قسم الخريطة ليعمل يقيناً */
+        .map-wrapper { border-radius: 30px; overflow: hidden; border: 2px solid var(--glass); position: relative; height: 450px; background: #111; margin-top: 30px; }
+        .map-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1) contrast(1.1); }
 
-        /* التواصل */
-        .contact-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin: 40px 0; }
-        .pill { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; display: flex; align-items: center; gap: 10px; transition: 0.3s; }
+        .pill { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin: 10px; }
         .pill-wa { background: #25d366; }
         .pill-call { background: var(--primary); }
-        .pill:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
-
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 65px; height: 65px; 
-                    border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 2000; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4); }
+        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 2000; }
 
         footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--glass); color: #444; }
     </style>
@@ -68,80 +56,69 @@
     <div class="container nav-flex">
         <div class="logo-box">
             <img src="IMG-20260504-WA0022.jpg" alt="MKM Logo">
-            <span style="font-weight: 900; font-size: 1.7rem; letter-spacing: 1px;">MKM <span style="color:var(--primary)">LUKA.Fire</span></span>
+            <span style="font-weight: 900; font-size: 1.7rem;">MKM <span style="color:var(--primary)">LUKA.Fire</span></span>
         </div>
     </div>
 </nav>
 
 <section class="hero">
     <div class="container" data-aos="zoom-out">
-        <p style="letter-spacing: 6px; color: var(--primary); font-weight: bold; margin-bottom: 10px;">SINCE 2012</p>
         <h1>نؤمن ما تعبت في بنائه</h1>
-        <p style="font-size: 1.4rem; max-width: 750px; margin: 25px auto; color: #bbb;">الخبير لأنظمة إطفاء الحريق - القاهرة (رمسيس) - معتمدون من الدفاع المدني.</p>
-        <a href="#contact" class="pill pill-call">ابدأ التأمين الآن</a>
+        <p style="font-size: 1.4rem; color: #bbb;">الخبير لأنظمة إطفاء الحريق - رمسيس - القاهرة</p>
     </div>
 </section>
 
 <main class="container">
-    
-    <!-- قسم سوابق الأعمال -->
     <section style="padding: 100px 0;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;" data-aos="fade-up">سوابق أعمالنا المشرفة</h2>
-        <div class="swiper mySwiper" data-aos="fade-up">
+        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">سوابق أعمالنا</h2>
+        <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="IMG-20260504-WA0023.jpg" alt="Work 1"></div>
-                <div class="swiper-slide"><img src="IMG-20260504-WA0022.jpg" alt="Work 2"></div>
-                <div class="swiper-slide"><img src="IMG-20260504-WA0023.jpg" alt="Work 3"></div>
-                <!-- ضيف باقي الـ 50 صورة هنا بنفس الطريقة -->
+                <div class="swiper-slide"><img src="IMG-20260504-WA0023.jpg" alt="Work"></div>
+                <div class="swiper-slide"><img src="IMG-20260504-WA0022.jpg" alt="Work"></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
     </section>
 
-    <!-- الخريطة والموقع (رمسيس) -->
+    <!-- الخريطة بـ رابط رمسيس الجديد والموثق -->
     <section id="location" style="padding: 50px 0;">
-        <h2 style="text-align: center; margin-bottom: 30px;">مقرنا في رمسيس - القاهرة</h2>
-        <div class="map-container" data-aos="zoom-in">
-            <!-- رابط الخريطة الجديد والموثق لرمسيس -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m13!1m11!1m1!2sRamses+Square!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458409747514337%3A0x67396a66632c0211!2z2YXYrdi32Kkg2LHYp9mF2LPZitiz!5e0!3m2!1sar!2seg!4v1714980000000!5m2!1sar!2seg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <h2 style="text-align: center;">موقعنا في رمسيس</h2>
+        <div class="map-wrapper" data-aos="zoom-in">
+            <!-- رابط الخريطة البديل لضمان العمل -->
+            <iframe src="https://maps.google.com/maps?q=Ramses+Station+Cairo&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
         </div>
-        <div style="text-align: center;">
-            <a href="https://maps.google.com/?q=Ramses+Station+Cairo" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: bold;">
-                <i class="fas fa-map-marked-alt"></i> فتح الموقع في خرائط جوجل
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="https://maps.google.com/?q=Ramses+Station+Cairo" target="_blank" class="pill pill-call">
+                <i class="fas fa-map-marked-alt"></i> فتح في خرائط جوجل
             </a>
         </div>
     </section>
 
-    <div class="contact-pills" id="contact">
-        <a href="tel:0223456789" class="pill pill-call"><i class="fas fa-phone-alt"></i> اتصل بنا</a>
-        <a href="https://wa.me/201234567890" class="pill pill-wa"><i class="fab fa-whatsapp"></i> واتساب</a>
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="https://wa.me/201234567890" class="pill pill-wa"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
     </div>
-
 </main>
 
 <a href="https://wa.me/201234567890" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <footer>
-    <div class="container">
-        <p>MKM LUKA.Fire &copy; 2026 | رمسيس - القاهرة</p>
-        <p style="font-size: 0.8rem; color: #222;">Coded by: Mostafa Mohamed </p>
-    </div>
+    <p>MKM LUKA.Fire &copy; 2026 | تطوير: Desha</p>
 </footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1000 });
     var swiper = new Swiper(".mySwiper", {
         effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-        autoplay: { delay: 2500, disableOnInteraction: false },
+        autoplay: { delay: 2500 },
         coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
         pagination: { el: ".swiper-pagination" },
     });
     window.onscroll = function() {
         var nav = document.getElementById("navbar");
-        if (window.pageYOffset > 50) { nav.classList.add("nav-blur"); } 
-        else { nav.classList.remove("nav-blur"); }
+        if (window.pageYOffset > 50) nav.classList.add("nav-blur");
+        else nav.classList.remove("nav-blur");
     };
 </script>
 
