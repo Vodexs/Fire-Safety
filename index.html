@@ -3,101 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM | القوة في هندسة الحريق</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;700;900&display=swap" rel="stylesheet">
+    <title>MKM | هندسة الإطفاء والضغط</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cairo', sans-serif; background: #050505; color: #fff; overflow-x: hidden; }
+        :root { --p: #ff3131; --bg: #050505; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        body { background: var(--bg); color: #fff; overflow-x: hidden; }
+        
+        /* الـ Background "الجبار" - خيوط متحركة */
+        #canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.5; }
 
-        /* Background Gradient */
-        .bg-glow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1a0505 0%, #050505 100%); z-index: -1; }
+        /* Navbar Neon */
+        nav { padding: 25px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,49,49,0.2); position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; }
+        .logo span { color: var(--p); text-shadow: 0 0 10px var(--p); }
 
-        /* Navbar */
-        nav { padding: 25px; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; }
-        .logo { font-size: 24px; font-weight: 900; letter-spacing: 2px; }
-        .logo span { color: #ff3e3e; }
+        /* Hero */
+        .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 span { color: transparent; -webkit-text-stroke: 1px #fff; }
+        .hero p { font-size: 1.2rem; color: #888; max-width: 600px; margin-bottom: 30px; }
 
-        /* Hero Section */
-        .hero { height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: #aaa; max-width: 600px; margin-bottom: 40px; }
+        /* Cards */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 50px 20px; max-width: 1200px; margin: auto; }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; transition: 0.5s; position: relative; overflow: hidden; }
+        .card:hover { transform: translateY(-15px); background: rgba(255,49,49,0.05); border-color: var(--p); }
+        .card i { font-size: 45px; color: var(--p); margin-bottom: 20px; display: block; }
+        .card h3 { font-size: 24px; margin-bottom: 15px; }
+        .card::after { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--p), transparent); transition: 0.5s; }
+        .card:hover::after { left: 100%; }
 
-        /* Glass Cards */
-        .container { max-width: 1200px; margin: auto; padding: 50px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
-            padding: 40px; 
-            border-radius: 30px; 
-            transition: 0.4s;
-            position: relative;
-        }
-        .glass-card:hover { background: rgba(255, 255, 255, 0.07); border-color: #ff3e3e; transform: translateY(-10px); }
-        .glass-card i { font-size: 40px; color: #ff3e3e; margin-bottom: 25px; display: block; }
-        .glass-card h3 { font-size: 22px; margin-bottom: 15px; }
-        .glass-card p { color: #888; font-size: 0.95rem; line-height: 1.7; }
-
-        /* Button */
-        .btn { 
-            background: #ff3e3e; color: #white; padding: 18px 45px; border-radius: 100px; 
-            text-decoration: none; font-weight: bold; font-size: 1.1rem; 
-            box-shadow: 0 10px 40px rgba(255, 62, 62, 0.3); transition: 0.3s;
-        }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 15px 50px rgba(255, 62, 62, 0.5); }
-
-        /* Stats */
-        .stats { display: flex; justify-content: center; gap: 60px; margin-top: 80px; opacity: 0.6; }
-        .stat-item b { display: block; font-size: 30px; color: #fff; }
-
-        footer { text-align: center; padding: 60px; color: #444; font-size: 14px; }
+        .btn { background: var(--p); color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 20px rgba(255,49,49,0.4); transition: 0.3s; }
+        .btn:hover { transform: scale(1.1); box-shadow: 0 0 40px var(--p); }
     </style>
 </head>
 <body>
 
-<div class="bg-glow"></div>
+<canvas id="canvas"></canvas>
 
 <nav>
-    <div class="logo">MKM<span>.</span></div>
-    <div style="font-weight: bold; color: #666;">RAMSES HQ</div>
+    <div class="logo">MKM<span>.</span>ENGINEERING</div>
+    <div style="font-weight: bold; color: var(--p)">RAMSES / 2026</div>
 </nav>
 
 <section class="hero">
-    <h1>هندسة الذكاء<br><span style="color: #ff3e3e;">في إطفاء الحريق</span></h1>
-    <p>حلول متكاملة لشبكات الرش وطلمبات الضغط بأحدث تكنولوجيا الميكانيكا المعتمدة.</p>
-    <a href="#" class="btn">ابدأ مشروعك معنا</a>
-    
-    <div class="stats">
-        <div class="stat-item"><b>+100</b> مشروع</div>
-        <div class="stat-item"><b>+50</b> غرف طلمبات</div>
-        <div class="stat-item"><b>100%</b> أمان</div>
-    </div>
+    <p style="letter-spacing: 5px; color: var(--p); font-weight: bold;">INDUSTRIAL FIRE SYSTEMS</p>
+    <h1>نحن القوة <span>خلف</span> الضغط</h1>
+    <p>خبراء طلمبات الحريق وشبكات الرش الآلي. دقة هندسية من رمسيس لكل مصر.</p>
+    <a href="#" class="btn">طلب عرض سعر فوري</a>
 </section>
 
-<div class="container">
-    <div class="glass-card">
-        <i class="fas fa-droplet"></i>
+<div class="grid">
+    <div class="card">
+        <i class="fas fa-faucet-drip"></i>
         <h3>طلمبات الضغط</h3>
-        <p>توريد وبرمجة غرف طلمبات الحريق (Diesel/Electric) لضمان ضغوط ثابتة طبقاً للكود.</p>
+        <p>توريد وتركيب غرف الطلمبات (Diesel & Electric) بأعلى كفاءة تشغيل.</p>
     </div>
-    <div class="glass-card">
-        <i class="fas fa-shield-halved"></i>
-        <h3>شبكات الرش الآلي</h3>
-        <p>تصميم وتنفيذ أنظمة الـ Sprinklers والـ Deluge للمساحات الكبرى والمصانع.</p>
+    <div class="card">
+        <i class="fas fa-fire-extinguisher"></i>
+        <h3>شبكات الرش</h3>
+        <p>تصميم شبكات الـ Sprinklers المتطورة لضمان أمان المنشآت الحيوية.</p>
     </div>
-    <div class="glass-card">
-        <i class="fas fa-gear"></i>
-        <h3>الدعم الهندسي</h3>
-        <p>حسابات هيدروليكية ومعاينة دورية لفرع رمسيس وباقي المحافظات بأعلى دقة.</p>
+    <div class="card">
+        <i class="fas fa-screwdriver-wrench"></i>
+        <h3>صيانة 24/7</h3>
+        <p>عقود صيانة دورية وضبط ضغوط المياة لضمان الجاهزية الدائمة.</p>
     </div>
 </div>
 
-<footer>
-    Designed for MKM by Desha Hunter &copy; 2026
-</footer>
+<script>
+    // سكريبت الجرافيكس المتحرك (الجبار)
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 2 + 0.1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0;
+            if (this.y < 0) this.y = canvas.height;
+        }
+        draw() {
+            ctx.fillStyle = 'rgba(255, 49, 49, 0.5)';
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    for (let i = 0; i < 100; i++) particles.push(new Particle());
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    animate();
+</script>
 
 </body>
 </html>
