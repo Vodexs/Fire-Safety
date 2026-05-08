@@ -3,112 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM | أنظمة طلمبات الضغط وشبكات الرش</title>
+    <title>MKM Engineering | خبير أنظمة الإطفاء وطلمبات الحريق</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
-        :root { --main-red: #d32f2f; --dark-iron: #212121; --silver: #f5f5f5; }
-        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--silver); color: #333; overflow-x: hidden; }
-        
-        /* Navbar */
-        nav { background: rgba(0,0,0,0.9); padding: 15px; position: fixed; width: 100%; z-index: 1000; transition: 0.4s; }
-        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { color: white; font-weight: 900; font-size: 1.8rem; text-decoration: none; }
-        .logo span { color: var(--main-red); }
+        :root {
+            --primary: #e63946; /* أحمر ناري احترافي */
+            --dark: #0a0a0a;
+            --accent: #1b1b1b;
+            --text-gray: #b0b0b0;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--dark); color: white; margin: 0; scroll-behavior: smooth; }
+
+        /* Navigation */
+        nav { background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
+        .nav-content { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo { font-size: 1.8rem; font-weight: 900; color: white; text-decoration: none; letter-spacing: 1px; }
+        .logo span { color: var(--primary); }
 
         /* Hero Section */
-        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG-20260504-WA0023.jpg'); 
-                background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
-        .hero-content h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0; }
-        .hero-content p { font-size: 1.5rem; color: #ddd; }
+        .hero { height: 100vh; display: flex; align-items: center; background: linear-gradient(to left, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80'); background-size: cover; background-position: center; }
+        .hero-text { max-width: 1200px; margin: auto; padding: 0 20px; width: 100%; }
+        .hero-text h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.2; margin: 0; }
+        .hero-text p { font-size: 1.4rem; color: var(--text-gray); max-width: 600px; margin: 20px 0; }
 
-        /* Services */
-        .services { padding: 80px 20px; max-width: 1200px; margin: auto; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background: white; padding: 30px; border-radius: 15px; border-bottom: 5px solid var(--main-red); box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; }
-        .card:hover { transform: translateY(-10px); }
-        .card i { font-size: 3rem; color: var(--main-red); margin-bottom: 20px; }
+        /* Tech Specs Grid */
+        .specs { padding: 100px 20px; max-width: 1200px; margin: auto; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 3rem; margin-bottom: 10px; }
+        .section-title div { width: 80px; height: 4px; background: var(--primary); margin: auto; }
 
-        /* Tech Section (Specific for Pumps & Sprinklers) */
-        .tech-info { background: var(--dark-iron); color: white; padding: 60px 20px; text-align: center; }
-        .tech-item { display: inline-block; margin: 20px 40px; }
-        .tech-item h3 { font-size: 2.5rem; color: var(--main-red); margin-bottom: 5px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .spec-box { background: var(--accent); padding: 40px; border-radius: 2px; border-right: 4px solid var(--primary); position: relative; overflow: hidden; }
+        .spec-box:hover { background: #252525; transform: translateY(-10px); }
+        .spec-box i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
+        .spec-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .spec-box p { color: var(--text-gray); line-height: 1.8; }
 
-        .cta-btn { background: var(--main-red); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .cta-btn:hover { background: #b71c1c; transform: scale(1.05); }
+        /* Gallery/Works Preview */
+        .work-preview { padding: 80px 0; background: #0f0f0f; text-align: center; }
+        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1200px; margin: auto; padding: 40px 0; }
+        .stat-item h4 { font-size: 3rem; color: var(--primary); margin: 0; }
+        .stat-item p { color: var(--text-gray); font-weight: bold; }
 
-        footer { background: #111; color: #777; text-align: center; padding: 40px; border-top: 3px solid var(--main-red); }
+        /* Floating Contact Button */
+        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; text-decoration: none; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+
+        footer { padding: 50px; text-align: center; border-top: 1px solid #222; color: #444; }
     </style>
 </head>
 <body>
 
-<nav id="mainNav">
-    <div class="nav-container">
-        <a href="#" class="logo">MKM <span>LUKA.FIRE</span></a>
-        <div style="color:white"><i class="fas fa-phone-alt"></i> رمسيس: 01xxxxxxxxx</div>
+<nav>
+    <div class="nav-content">
+        <a href="#" class="logo">MKM <span>ENGINEERING</span></a>
+        <div style="font-weight: bold; color: var(--primary);">فرع رمسيس <i class="fas fa-location-dot"></i></div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="hero-content" data-aos="zoom-in">
-        <h1>هندسة إطفاء الحريق المتكاملة</h1>
-        <p>نحن خبراء طلمبات ضغط المياه وشبكات الرش الآلية</p>
-        <a href="#contact" class="cta-btn">طلب عرض سعر</a>
+    <div class="hero-text" data-aos="fade-right">
+        <h1>هندسة <br> <span style="color: var(--primary);">ضغط الميكانيكا</span></h1>
+        <p>خبراء توريد وتركيب غرف الطلمبات وشبكات الرش الآلية طبقاً للأكواد العالمية NFPA.</p>
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/201234567890" style="background: var(--primary); color: white; padding: 18px 40px; text-decoration: none; font-weight: 900; border-radius: 5px; margin-left: 20px;">عرض سعر فني</a>
+            <a href="#specs" style="color: white; text-decoration: none; font-weight: bold; border-bottom: 2px solid var(--primary);">تخصصاتنا</a>
+        </div>
     </div>
 </section>
 
-<section class="services">
-    <h2 style="text-align:center; font-size: 2.5rem;">تخصصاتنا الفنية</h2>
+<section class="specs" id="specs">
+    <div class="section-title" data-aos="fade-up">
+        <h2>خبراتنا الفنية</h2>
+        <div></div>
+    </div>
+    
     <div class="grid">
-        <div class="card" data-aos="fade-up">
-            <i class="fas fa-faucet-drip"></i>
-            <h3>أنظمة طلمبات الضغط</h3>
-            <p>توريد وتركيب وصيانة غرف طلمبات الحريق (Electric, Diesel, Jockey) طبقاً لمواصفات الـ NFPA.</p>
+        <div class="spec-box" data-aos="fade-up">
+            <i class="fas fa-engine"></i>
+            <h3>غرف الطلمبات (Pumps)</h3>
+            <p>تركيب مجموعات طلمبات الحريق المتكاملة (كهرباء - ديزل - جوكي) مع لوحات التحكم الذكية لضمان ثبات الضغط في الشبكة.</p>
         </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-shower"></i>
-            <h3>شبكات الرش الآلي</h3>
-            <p>تصميم وتنفيذ شبكات الرش (Sprinklers) وصناديق الحريق بكافة أنواعها للمصانع والمباني الإدارية.</p>
+        
+        <div class="spec-box" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-project-diagram"></i>
+            <h3>شبكات الرش (Sprinklers)</h3>
+            <p>تصميم وتنفيذ شبكات الرش الآلي وشبكات الـ Dry & Wet Pipe وتوزيع الرؤوس بدقة هندسية لتغطية كامل المساحات.</p>
         </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-tools"></i>
-            <h3>عقود الصيانة الدورية</h3>
-            <p>نضمن جاهزية نظامك 24/7 من خلال عقود صيانة سنوية معتمدة ومعاينة دورية للضغوط والمحابس.</p>
+        
+        <div class="spec-box" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-guage-high"></i>
+            <h3>أنظمة ضغط المياة</h3>
+            <p>حسابات هيدروليكية دقيقة وضبط محابس تخفيض الضغط (PRV) لضمان وصول المياه بأمان لأبعد نقطة في المبنى.</p>
         </div>
     </div>
 </section>
 
-<section class="tech-info">
-    <div class="tech-item">
-        <h3 class="counter">50</h3>
-        <p>مشروع منفذ</p>
-    </div>
-    <div class="tech-item">
-        <h3 class="counter">100</h3>
-        <p>اختبار ضغط ناجح</p>
-    </div>
-    <div class="tech-item">
-        <h3 class="counter">24</h3>
-        <p>ساعة دعم فني</p>
+<section class="work-preview">
+    <div class="stats">
+        <div class="stat-item"><h4>+150</h4><p>شبكة رش منفذة</p></div>
+        <div class="stat-item"><h4>+80</h4><p>غرفة طلمبات معتمدة</p></div>
+        <div class="stat-item"><h4>+12</h4><p>سنة خبرة فنية</p></div>
     </div>
 </section>
 
-<footer id="contact">
-    <p>MKM LUKA.FIRE - رمسيس - القاهرة</p>
-    <p>جميع الحقوق محفوظة © 2026 | تطوير ديشا هنتر</p>
+<a href="https://wa.me/201234567890" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+
+<footer>
+    <p>MKM LUKA.Fire & Engineering - جميع الحقوق محفوظة © 2026</p>
+    <p style="font-size: 0.8rem;">Developed by: Desha Hunter 🦾</p>
 </footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     AOS.init({ duration: 1000, once: true });
-    
-    // سكريبت بسيط لتغيير لون النافبار عند السكرول
-    window.onscroll = function() {
-        var nav = document.getElementById("mainNav");
-        if (window.pageYOffset > 100) { nav.style.background = "rgba(0,0,0,1)"; } 
-        else { nav.style.background = "rgba(0,0,0,0.9)"; }
-    };
 </script>
 
 </body>
