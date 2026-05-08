@@ -3,120 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM Engineering | خبير أنظمة الإطفاء وطلمبات الحريق</title>
+    <title>MKM Engineering | رمسيس - أنظمة مكافحة الحريق المتطورة</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;600;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <style>
-        :root {
-            --primary: #e63946; /* أحمر ناري احترافي */
-            --dark: #0a0a0a;
-            --accent: #1b1b1b;
-            --text-gray: #b0b0b0;
-        }
+        :root { --primary: #ff0000; --dark-bg: #080808; --card-bg: #121212; --accent: #1a1a1a; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background: var(--dark-bg); color: #fff; overflow-x: hidden; }
 
-        * { box-sizing: border-box; transition: all 0.3s ease; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--dark); color: white; margin: 0; scroll-behavior: smooth; }
+        /* Header */
+        header { height: 100vh; position: relative; display: flex; align-items: center; overflow: hidden; }
+        .hero-video { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1; opacity: 0.4; filter: grayscale(100%); }
+        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--dark-bg), transparent); }
+
+        .container { max-width: 1300px; margin: auto; padding: 0 30px; position: relative; z-index: 10; }
+        .hero-title { font-family: 'Cairo', sans-serif; font-weight: 900; font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; text-transform: uppercase; }
+        .hero-title span { color: var(--primary); -webkit-text-stroke: 1px white; -webkit-text-fill-color: transparent; }
 
         /* Navigation */
-        nav { background: rgba(10, 10, 10, 0.95); border-bottom: 1px solid #333; padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; }
-        .nav-content { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo { font-size: 1.8rem; font-weight: 900; color: white; text-decoration: none; letter-spacing: 1px; }
-        .logo span { color: var(--primary); }
+        nav { padding: 30px 0; position: absolute; width: 100%; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-size: 2rem; font-weight: 900; letter-spacing: 2px; }
 
-        /* Hero Section */
-        .hero { height: 100vh; display: flex; align-items: center; background: linear-gradient(to left, rgba(0,0,0,0.8), transparent), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80'); background-size: cover; background-position: center; }
-        .hero-text { max-width: 1200px; margin: auto; padding: 0 20px; width: 100%; }
-        .hero-text h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.2; margin: 0; }
-        .hero-text p { font-size: 1.4rem; color: var(--text-gray); max-width: 600px; margin: 20px 0; }
+        /* Industrial Grid */
+        .section { padding: 120px 0; }
+        .grid-tech { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .tech-card { background: var(--card-bg); padding: 50px; border: 1px solid #1f1f1f; position: relative; transition: 0.5s; }
+        .tech-card:hover { border-color: var(--primary); transform: translateY(-10px); }
+        .tech-card::before { content: ""; position: absolute; top: 0; right: 0; width: 0; height: 3px; background: var(--primary); transition: 0.5s; }
+        .tech-card:hover::before { width: 100%; }
+        
+        .tech-card i { font-size: 4rem; color: var(--primary); margin-bottom: 30px; opacity: 0.8; }
+        .tech-card h3 { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
+        .tech-card p { color: #888; line-height: 1.8; font-size: 1.1rem; }
 
-        /* Tech Specs Grid */
-        .specs { padding: 100px 20px; max-width: 1200px; margin: auto; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 3rem; margin-bottom: 10px; }
-        .section-title div { width: 80px; height: 4px; background: var(--primary); margin: auto; }
+        /* Specs Table Style */
+        .specs-list { margin-top: 20px; border-top: 1px solid #222; padding-top: 20px; }
+        .spec-item { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--primary); font-weight: bold; }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-        .spec-box { background: var(--accent); padding: 40px; border-radius: 2px; border-right: 4px solid var(--primary); position: relative; overflow: hidden; }
-        .spec-box:hover { background: #252525; transform: translateY(-10px); }
-        .spec-box i { font-size: 3rem; color: var(--primary); margin-bottom: 20px; display: block; }
-        .spec-box h3 { font-size: 1.8rem; margin-bottom: 15px; }
-        .spec-box p { color: var(--text-gray); line-height: 1.8; }
+        /* Contact Section */
+        .contact-bar { background: var(--primary); color: white; padding: 60px 0; text-align: center; }
+        .btn-main { background: white; color: black; padding: 20px 50px; text-decoration: none; font-weight: 900; font-size: 1.2rem; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .btn-main:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 
-        /* Gallery/Works Preview */
-        .work-preview { padding: 80px 0; background: #0f0f0f; text-align: center; }
-        .stats { display: flex; justify-content: space-around; flex-wrap: wrap; max-width: 1200px; margin: auto; padding: 40px 0; }
-        .stat-item h4 { font-size: 3rem; color: var(--primary); margin: 0; }
-        .stat-item p { color: var(--text-gray); font-weight: bold; }
-
-        /* Floating Contact Button */
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; color: white; text-decoration: none; z-index: 100; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-
-        footer { padding: 50px; text-align: center; border-top: 1px solid #222; color: #444; }
+        footer { padding: 40px 0; text-align: center; background: #050505; color: #444; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="nav-content">
-        <a href="#" class="logo">MKM <span>ENGINEERING</span></a>
-        <div style="font-weight: bold; color: var(--primary);">فرع رمسيس <i class="fas fa-location-dot"></i></div>
+    <div class="container nav-flex">
+        <div class="brand">MKM <span>LUKA.FIRE</span></div>
+        <div style="font-weight: bold; letter-spacing: 1px;">RAMSES OFFICE | 2026</div>
     </div>
 </nav>
 
-<section class="hero">
-    <div class="hero-text" data-aos="fade-right">
-        <h1>هندسة <br> <span style="color: var(--primary);">ضغط الميكانيكا</span></h1>
-        <p>خبراء توريد وتركيب غرف الطلمبات وشبكات الرش الآلية طبقاً للأكواد العالمية NFPA.</p>
-        <div style="margin-top: 40px;">
-            <a href="https://wa.me/201234567890" style="background: var(--primary); color: white; padding: 18px 40px; text-decoration: none; font-weight: 900; border-radius: 5px; margin-left: 20px;">عرض سعر فني</a>
-            <a href="#specs" style="color: white; text-decoration: none; font-weight: bold; border-bottom: 2px solid var(--primary);">تخصصاتنا</a>
+<header>
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop" class="hero-video">
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div data-aos="fade-up">
+            <p style="color: var(--primary); font-weight: bold; letter-spacing: 5px; margin-bottom: 20px;">ENGINEERING SYSTEMS</p>
+            <h1 class="hero-title">نحن نصنع <span>الأمان</span><br>بضغط الميكانيكا</h1>
+            <p style="max-width: 700px; font-size: 1.5rem; margin-top: 30px; color: #aaa;">الريادة في توريد وتركيب غرف الطلمبات وشبكات الرش الآلية بمواصفات عالمية.</p>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="grid-tech">
+            <div class="tech-card" data-aos="fade-up">
+                <i class="fas fa-faucet-drip"></i>
+                <h3>طلمبات الضغط</h3>
+                <p>تكامل أنظمة (Electric & Diesel & Jockey) لضمان أعلى أداء لشبكة الحريق.</p>
+                <div class="specs-list">
+                    <div class="spec-item"><span>UL/FM Listed</span> <i class="fas fa-check"></i></div>
+                    <div class="spec-item"><span>NFPA 20 Standards</span> <i class="fas fa-check"></i></div>
+                </div>
+            </div>
+
+            <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-wind"></i>
+                <h3>شبكات الرش الآلي</h3>
+                <p>تصميم هيدروليكي دقيق لشبكات الـ Sprinklers بجميع أنواعها للمباني الضخمة.</p>
+                <div class="specs-list">
+                    <div class="spec-item"><span>Wet & Dry Systems</span> <i class="fas fa-check"></i></div>
+                    <div class="spec-item"><span>Pre-action Systems</span> <i class="fas fa-check"></i></div>
+                </div>
+            </div>
+
+            <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-screwdriver-wrench"></i>
+                <h3>الدعم الفني</h3>
+                <p>عقود صيانة سنوية واختبارات ضغط دورية للمحابس واللوحات الكهربائية.</p>
+                <div class="specs-list">
+                    <div class="spec-item"><span>24/7 Support</span> <i class="fas fa-check"></i></div>
+                    <div class="spec-item"><span>Ramses HQ</span> <i class="fas fa-check"></i></div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="specs" id="specs">
-    <div class="section-title" data-aos="fade-up">
-        <h2>خبراتنا الفنية</h2>
-        <div></div>
+<div class="contact-bar">
+    <div class="container">
+        <h2>هل أنت جاهز لتأمين مشروعك بأعلى دقة هندسية؟</h2>
+        <a href="https://wa.me/201234567890" class="btn-main">اطلب معاينة فنية الآن</a>
     </div>
-    
-    <div class="grid">
-        <div class="spec-box" data-aos="fade-up">
-            <i class="fas fa-engine"></i>
-            <h3>غرف الطلمبات (Pumps)</h3>
-            <p>تركيب مجموعات طلمبات الحريق المتكاملة (كهرباء - ديزل - جوكي) مع لوحات التحكم الذكية لضمان ثبات الضغط في الشبكة.</p>
-        </div>
-        
-        <div class="spec-box" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-project-diagram"></i>
-            <h3>شبكات الرش (Sprinklers)</h3>
-            <p>تصميم وتنفيذ شبكات الرش الآلي وشبكات الـ Dry & Wet Pipe وتوزيع الرؤوس بدقة هندسية لتغطية كامل المساحات.</p>
-        </div>
-        
-        <div class="spec-box" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-guage-high"></i>
-            <h3>أنظمة ضغط المياة</h3>
-            <p>حسابات هيدروليكية دقيقة وضبط محابس تخفيض الضغط (PRV) لضمان وصول المياه بأمان لأبعد نقطة في المبنى.</p>
-        </div>
-    </div>
-</section>
-
-<section class="work-preview">
-    <div class="stats">
-        <div class="stat-item"><h4>+150</h4><p>شبكة رش منفذة</p></div>
-        <div class="stat-item"><h4>+80</h4><p>غرفة طلمبات معتمدة</p></div>
-        <div class="stat-item"><h4>+12</h4><p>سنة خبرة فنية</p></div>
-    </div>
-</section>
-
-<a href="https://wa.me/201234567890" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+</div>
 
 <footer>
-    <p>MKM LUKA.Fire & Engineering - جميع الحقوق محفوظة © 2026</p>
-    <p style="font-size: 0.8rem;">Developed by: Desha Hunter 🦾</p>
+    <p>MKM LUKA.FIRE | فرع رمسيس | تطوير ديشا هنتر</p>
 </footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
