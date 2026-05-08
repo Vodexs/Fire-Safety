@@ -3,77 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM | هندسة الإطفاء والضغط</title>
+    <title>MKM | القوة الميكانيكية في هندسة الإطفاء</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <style>
-        :root { --p: #ff3131; --bg: #050505; }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
+        :root { --p: #ff0000; --bg: #030303; --card: #111; --text: #b0b0b0; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
         body { background: var(--bg); color: #fff; overflow-x: hidden; }
-        
-        /* الـ Background "الجبار" - خيوط متحركة */
-        #canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.5; }
+
+        /* Background الجرافيكس المتحرك (الجبار) */
+        #canvas { position: fixed; top: 0; left: 0; z-index: -1; opacity: 0.4; }
 
         /* Navbar Neon */
-        nav { padding: 25px; display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,49,49,0.2); position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 28px; font-weight: 900; letter-spacing: 2px; }
-        .logo span { color: var(--p); text-shadow: 0 0 10px var(--p); }
+        nav { padding: 20px 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(255,0,0,0.2); position: sticky; top: 0; z-index: 1000; transition: 0.3s; }
+        .nav-c { max-width: 1300px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 30px; }
+        .logo { font-size: 2.2rem; font-weight: 900; letter-spacing: 2px; }
+        .logo span { color: var(--p); text-shadow: 0 0 15px var(--p); }
 
-        /* Hero */
+        /* Hero (التشويق) */
         .hero { height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1; text-transform: uppercase; margin-bottom: 20px; }
-        .hero h1 span { color: transparent; -webkit-text-stroke: 1px #fff; }
-        .hero p { font-size: 1.2rem; color: #888; max-width: 600px; margin-bottom: 30px; }
+        .hero p.tag { letter-spacing: 8px; color: var(--p); font-weight: bold; text-transform: uppercase; margin-bottom: 20px; }
+        .hero h1 { font-size: clamp(2.8rem, 11vw, 6rem); font-weight: 900; line-height: 1; text-transform: uppercase; }
+        .hero h1 span { color: transparent; -webkit-text-stroke: 1px white; }
 
-        /* Cards */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 50px 20px; max-width: 1200px; margin: auto; }
-        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 40px; border-radius: 20px; transition: 0.5s; position: relative; overflow: hidden; }
-        .card:hover { transform: translateY(-15px); background: rgba(255,49,49,0.05); border-color: var(--p); }
-        .card i { font-size: 45px; color: var(--p); margin-bottom: 20px; display: block; }
-        .card h3 { font-size: 24px; margin-bottom: 15px; }
-        .card::after { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--p), transparent); transition: 0.5s; }
-        .card:hover::after { left: 100%; }
+        /* Services Grid */
+        .specs { padding: 120px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1300px; margin: auto; padding: 0 30px; }
+        .s-card { background: var(--card); border: 1px solid #1f1f1f; padding: 50px; border-radius: 2px; transition: 0.5s; position: relative; overflow: hidden; }
+        .s-card:hover { border-color: var(--p); transform: translateY(-15px); }
+        .s-card i { font-size: 4rem; color: var(--p); margin-bottom: 30px; display: block; opacity: 0.8; }
+        .s-card h3 { font-size: 2rem; font-weight: 900; margin-bottom: 15px; }
+        .s-card p { color: var(--text); font-size: 1.1rem; line-height: 1.8; }
+        .s-card::after { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--p), transparent); transition: 0.6s ease-in-out; }
+        .s-card:hover::after { left: 100%; }
 
-        .btn { background: var(--p); color: #fff; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; box-shadow: 0 0 20px rgba(255,49,49,0.4); transition: 0.3s; }
-        .btn:hover { transform: scale(1.1); box-shadow: 0 0 40px var(--p); }
+        /* Portfolio (معرض صور الطلمبات والرش) */
+        .portfolio { padding: 100px 0; background: #080808; border-top: 1px solid #111; border-bottom: 1px solid #111; }
+        .s-title { text-align: center; font-size: 3rem; font-weight: 900; margin-bottom: 60px; }
+        .s-title span { color: var(--p); }
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1300px; margin: auto; padding: 0 30px; }
+        .p-item { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; aspect-ratio: 4/3; background: #222; }
+        .p-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; filter: grayscale(100%); }
+        .p-item:hover img { filter: grayscale(0%); transform: scale(1.1); }
+        .p-item-info { position: absolute; bottom: -100%; left: 0; width: 100%; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); padding: 25px; transition: 0.4s; }
+        .p-item:hover .p-item-info { bottom: 0; }
+        .p-item-info h4 { font-size: 1.3rem; margin-bottom: 5px; }
+        .p-item-info p { color: var(--p); font-weight: bold; font-size: 0.9rem; }
+
+        /* Button & Footer */
+        .btn { background: var(--p); color: #fff; padding: 18px 45px; border-radius: 5px; text-decoration: none; font-weight: 900; font-size: 1.2rem; margin-top: 40px; display: inline-block; box-shadow: 0 0 25px rgba(255,0,0,0.3); transition: 0.3s; }
+        .btn:hover { transform: scale(1.05); box-shadow: 0 0 45px rgba(255,0,0,0.6); }
+        
+        footer { padding: 60px 0; text-align: center; color: #444; background: #000; border-top: 1px solid #111; }
     </style>
 </head>
 <body>
 
 <canvas id="canvas"></canvas>
 
-<nav>
-    <div class="logo">MKM<span>.</span>ENGINEERING</div>
-    <div style="font-weight: bold; color: var(--p)">RAMSES / 2026</div>
+<nav id="mainNav">
+    <div class="nav-c">
+        <div class="logo">MKM<span>.</span>ENGINEERING</div>
+        <div style="font-weight: bold; color: var(--p); letter-spacing: 1px;"><i class="fas fa-map-pin"></i> رمسيس - القاهرة</div>
+    </div>
 </nav>
 
 <section class="hero">
-    <p style="letter-spacing: 5px; color: var(--p); font-weight: bold;">INDUSTRIAL FIRE SYSTEMS</p>
-    <h1>نحن القوة <span>خلف</span> الضغط</h1>
-    <p>خبراء طلمبات الحريق وشبكات الرش الآلي. دقة هندسية من رمسيس لكل مصر.</p>
-    <a href="#" class="btn">طلب عرض سعر فوري</a>
+    <div data-aos="zoom-in">
+        <p class="tag">الهندسة تحت الضغط</p>
+        <h1>نحن القوة <span>خلف</span><br>ضغط الميكانيكا</h1>
+        <p style="font-size: 1.4rem; color: #999; max-width: 700px; margin: 30px auto;">الريادة في توريد وتركيب غرف الطلمبات وشبكات الرش الآلية بمواصفات عالمية NFPA.</p>
+        <a href="#portfolio" class="btn">معرض سوابق أعمالنا</a>
+    </div>
 </section>
 
-<div class="grid">
-    <div class="card">
-        <i class="fas fa-faucet-drip"></i>
-        <h3>طلمبات الضغط</h3>
-        <p>توريد وتركيب غرف الطلمبات (Diesel & Electric) بأعلى كفاءة تشغيل.</p>
+<section class="specs" id="specs">
+    <div class="grid">
+        <div class="s-card" data-aos="fade-up">
+            <i class="fas fa-faucet-drip"></i>
+            <h3>غرف طلمبات الضغط</h3>
+            <p>حلول متكاملة (Electric/Diesel/Jockey) لضمان ثبات الضغط في أصعب الظروف.</p>
+        </div>
+        <div class="s-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-fire-extinguisher"></i>
+            <h3>شبكات الرش الآلي</h3>
+            <p>تصميم وتنفيذ شبكات Sprinklers بجميع أنواعها بأعلى دقة هندسية.</p>
+        </div>
+        <div class="s-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-screwdriver-wrench"></i>
+            <h3>الصيانة والدعم</h3>
+            <p>عقود صيانة سنوية وضبط ضغوط المياة لضمان الجاهزية الدائمة 24/7.</p>
+        </div>
     </div>
-    <div class="card">
-        <i class="fas fa-fire-extinguisher"></i>
-        <h3>شبكات الرش</h3>
-        <p>تصميم شبكات الـ Sprinklers المتطورة لضمان أمان المنشآت الحيوية.</p>
-    </div>
-    <div class="card">
-        <i class="fas fa-screwdriver-wrench"></i>
-        <h3>صيانة 24/7</h3>
-        <p>عقود صيانة دورية وضبط ضغوط المياة لضمان الجاهزية الدائمة.</p>
-    </div>
-</div>
+</section>
 
+<section class="portfolio" id="portfolio">
+    <div class="container">
+        <h2 class="s-title">سوابق أعمالنا <span>في الموقع</span></h2>
+        <div class="portfolio-grid">
+            <div class="p-item" data-aos="flip-left">
+                <img src="https://images.unsplash.com/photo-1517046033481-6f43e597148a?q=80&w=2070&auto=format&fit=crop" alt="شبكة رش">
+                <div class="p-item-info">
+                    <h4>شبكة رش آلية</h4>
+                    <p>مصنع حديد، أكتوبر</p>
+                </div>
+            </div>
+            <div class="p-item" data-aos="flip-left" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1510166299106-9b55502a9072?q=80&w=2070&auto=format&fit=crop" alt="غرفة طلمبات">
+                <div class="p-item-info">
+                    <h4>غرفة طلمبات ديزل</h4>
+                    <p>مول تجاري، التجمع</p>
+                </div>
+            </div>
+            <div class="p-item" data-aos="flip-left" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1542125387-c712c4d8c11e?q=80&w=2070&auto=format&fit=crop" alt="شبكة حريق">
+                <div class="p-item-info">
+                    <h4>شبكة حريق Dry</h4>
+                    <p>مخازن أدوية، العبور</p>
+                </div>
+            </div>
+             <div class="p-item" data-aos="flip-left" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1606857121768-e4b526b38c23?q=80&w=2070&auto=format&fit=crop" alt="صيانة طلمبات">
+                <div class="p-item-info">
+                    <h4>صيانة غرفة طلمبات</h4>
+                    <p>فرع رمسيس، القاهرة</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>جميع الحقوق محفوظة © MKM LUKA.FIRE & Engineering 2026</p>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Created with Power for MKM by: Desha Hunter 🦾</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
-    // سكريبت الجرافيكس المتحرك (الجبار)
+    AOS.init({ duration: 1000, once: true });
+    
+    // سكريبت النافبار المتحرك
+    window.onscroll = function() {
+        var nav = document.getElementById("mainNav");
+        if (window.pageYOffset > 100) { nav.style.padding = "10px 0"; nav.style.background = "rgba(0,0,0,1)"; } 
+        else { nav.style.padding = "20px 0"; nav.style.background = "rgba(0,0,0,0.85)"; }
+    };
+
+    // سكريبت الجرافيكس المتحرك الجبار (Particles)
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
@@ -85,26 +167,19 @@
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
             this.size = Math.random() * 2 + 0.1;
-            this.speedX = Math.random() * 2 - 1;
-            this.speedY = Math.random() * 2 - 1;
+            this.speedX = Math.random() * 1.5 - 0.75;
+            this.speedY = Math.random() * 1.5 - 0.75;
+            this.color = Math.random() > 0.5 ? 'rgba(255,0,0,0.5)' : 'rgba(255,255,255,0.3)';
         }
         update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            if (this.x > canvas.width) this.x = 0;
-            if (this.x < 0) this.x = canvas.width;
-            if (this.y > canvas.height) this.y = 0;
-            if (this.y < 0) this.y = canvas.height;
+            this.x += this.speedX; this.y += this.speedY;
+            if (this.x > canvas.width) this.x = 0; else if (this.x < 0) this.x = canvas.width;
+            if (this.y > canvas.height) this.y = 0; else if (this.y < 0) this.y = canvas.height;
         }
-        draw() {
-            ctx.fillStyle = 'rgba(255, 49, 49, 0.5)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
+        draw() { ctx.fillStyle = this.color; ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill(); }
     }
 
-    for (let i = 0; i < 100; i++) particles.push(new Particle());
+    for (let i = 0; i < 150; i++) particles.push(new Particle());
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -112,6 +187,7 @@
         requestAnimationFrame(animate);
     }
     animate();
+    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 </script>
 
 </body>
