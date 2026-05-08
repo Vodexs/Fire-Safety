@@ -3,122 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM LUKA.Fire | رمسيس - القاهرة</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <title>MKM | أنظمة طلمبات الضغط وشبكات الرش</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
     <style>
-        :root { --primary: #ff4b2b; --dark: #0f0f0f; --glass: rgba(255, 255, 255, 0.1); }
-        * { box-sizing: border-box; }
-        body { font-family: 'Cairo', sans-serif; margin: 0; background: #050505; color: white; scroll-behavior: smooth; overflow-x: hidden; }
+        :root { --main-red: #d32f2f; --dark-iron: #212121; --silver: #f5f5f5; }
+        body { font-family: 'Cairo', sans-serif; margin: 0; background: var(--silver); color: #333; overflow-x: hidden; }
+        
+        /* Navbar */
+        nav { background: rgba(0,0,0,0.9); padding: 15px; position: fixed; width: 100%; z-index: 1000; transition: 0.4s; }
+        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo { color: white; font-weight: 900; font-size: 1.8rem; text-decoration: none; }
+        .logo span { color: var(--main-red); }
 
-        .bg-animate { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
-                       background: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000 100%); }
+        /* Hero Section */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('IMG-20260504-WA0023.jpg'); 
+                background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .hero-content h1 { font-size: clamp(2rem, 6vw, 4rem); margin: 0; }
+        .hero-content p { font-size: 1.5rem; color: #ddd; }
 
-        .container { width: 90%; max-width: 1200px; margin: 0 auto; }
+        /* Services */
+        .services { padding: 80px 20px; max-width: 1200px; margin: auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 30px; border-radius: 15px; border-bottom: 5px solid var(--main-red); box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: 0.3s; text-align: center; }
+        .card:hover { transform: translateY(-10px); }
+        .card i { font-size: 3rem; color: var(--main-red); margin-bottom: 20px; }
 
-        nav { padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; transition: 0.5s; }
-        .nav-blur { background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.1); }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo-box { display: flex; align-items: center; gap: 15px; }
-        .logo-box img { height: 65px; border-radius: 12px; border: 2px solid var(--primary); }
+        /* Tech Section (Specific for Pumps & Sprinklers) */
+        .tech-info { background: var(--dark-iron); color: white; padding: 60px 20px; text-align: center; }
+        .tech-item { display: inline-block; margin: 20px 40px; }
+        .tech-item h3 { font-size: 2.5rem; color: var(--main-red); margin-bottom: 5px; }
 
-        .hero { height: 100vh; display: flex; align-items: center; text-align: center; 
-                background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('IMG-20260504-WA0023.jpg'); 
-                background-size: cover; background-attachment: fixed; background-position: center; }
-        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; margin: 0; line-height: 1.1; 
-                   background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .cta-btn { background: var(--main-red); color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .cta-btn:hover { background: #b71c1c; transform: scale(1.05); }
 
-        .swiper { width: 100%; padding: 50px 0; }
-        .swiper-slide { width: 320px; height: 400px; border-radius: 25px; overflow: hidden; border: 2px solid var(--glass); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-
-        /* تعديل قسم الخريطة ليعمل يقيناً */
-        .map-wrapper { border-radius: 30px; overflow: hidden; border: 2px solid var(--glass); position: relative; height: 450px; background: #111; margin-top: 30px; }
-        .map-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; filter: grayscale(1) invert(1) contrast(1.1); }
-
-        .pill { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; color: white; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin: 10px; }
-        .pill-wa { background: #25d366; }
-        .pill-call { background: var(--primary); }
-        .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25d366; color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; z-index: 2000; }
-
-        footer { text-align: center; padding: 60px 0; border-top: 1px solid var(--glass); color: #444; }
+        footer { background: #111; color: #777; text-align: center; padding: 40px; border-top: 3px solid var(--main-red); }
     </style>
 </head>
 <body>
 
-<div class="bg-animate"></div>
-
-<nav id="navbar">
-    <div class="container nav-flex">
-        <div class="logo-box">
-            <img src="IMG-20260504-WA0022.jpg" alt="MKM Logo">
-            <span style="font-weight: 900; font-size: 1.7rem;">MKM <span style="color:var(--primary)">LUKA.Fire</span></span>
-        </div>
+<nav id="mainNav">
+    <div class="nav-container">
+        <a href="#" class="logo">MKM <span>LUKA.FIRE</span></a>
+        <div style="color:white"><i class="fas fa-phone-alt"></i> رمسيس: 01xxxxxxxxx</div>
     </div>
 </nav>
 
 <section class="hero">
-    <div class="container" data-aos="zoom-out">
-        <h1>نؤمن ما تعبت في بنائه</h1>
-        <p style="font-size: 1.4rem; color: #bbb;">الخبير لأنظمة إطفاء الحريق - رمسيس - القاهرة</p>
+    <div class="hero-content" data-aos="zoom-in">
+        <h1>هندسة إطفاء الحريق المتكاملة</h1>
+        <p>نحن خبراء طلمبات ضغط المياه وشبكات الرش الآلية</p>
+        <a href="#contact" class="cta-btn">طلب عرض سعر</a>
     </div>
 </section>
 
-<main class="container">
-    <section style="padding: 100px 0;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">سوابق أعمالنا</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="IMG-20260504-WA0023.jpg" alt="Work"></div>
-                <div class="swiper-slide"><img src="IMG-20260504-WA0022.jpg" alt="Work"></div>
-            </div>
-            <div class="swiper-pagination"></div>
+<section class="services">
+    <h2 style="text-align:center; font-size: 2.5rem;">تخصصاتنا الفنية</h2>
+    <div class="grid">
+        <div class="card" data-aos="fade-up">
+            <i class="fas fa-faucet-drip"></i>
+            <h3>أنظمة طلمبات الضغط</h3>
+            <p>توريد وتركيب وصيانة غرف طلمبات الحريق (Electric, Diesel, Jockey) طبقاً لمواصفات الـ NFPA.</p>
         </div>
-    </section>
-
-    <!-- الخريطة بـ رابط رمسيس الجديد والموثق -->
-    <section id="location" style="padding: 50px 0;">
-        <h2 style="text-align: center;">موقعنا في رمسيس</h2>
-        <div class="map-wrapper" data-aos="zoom-in">
-            <!-- رابط الخريطة البديل لضمان العمل -->
-            <iframe src="https://maps.google.com/maps?q=Ramses+Station+Cairo&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-shower"></i>
+            <h3>شبكات الرش الآلي</h3>
+            <p>تصميم وتنفيذ شبكات الرش (Sprinklers) وصناديق الحريق بكافة أنواعها للمصانع والمباني الإدارية.</p>
         </div>
-        <div style="text-align: center; margin-top: 20px;">
-            <a href="https://maps.google.com/?q=Ramses+Station+Cairo" target="_blank" class="pill pill-call">
-                <i class="fas fa-map-marked-alt"></i> فتح في خرائط جوجل
-            </a>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-tools"></i>
+            <h3>عقود الصيانة الدورية</h3>
+            <p>نضمن جاهزية نظامك 24/7 من خلال عقود صيانة سنوية معتمدة ومعاينة دورية للضغوط والمحابس.</p>
         </div>
-    </section>
-
-    <div style="text-align: center; margin: 40px 0;">
-        <a href="https://wa.me/201234567890" class="pill pill-wa"><i class="fab fa-whatsapp"></i> تواصل واتساب</a>
     </div>
-</main>
+</section>
 
-<a href="https://wa.me/201234567890" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<section class="tech-info">
+    <div class="tech-item">
+        <h3 class="counter">50</h3>
+        <p>مشروع منفذ</p>
+    </div>
+    <div class="tech-item">
+        <h3 class="counter">100</h3>
+        <p>اختبار ضغط ناجح</p>
+    </div>
+    <div class="tech-item">
+        <h3 class="counter">24</h3>
+        <p>ساعة دعم فني</p>
+    </div>
+</section>
 
-<footer>
-    <p>MKM LUKA.Fire &copy; 2026 | تطوير: Desha</p>
+<footer id="contact">
+    <p>MKM LUKA.FIRE - رمسيس - القاهرة</p>
+    <p>جميع الحقوق محفوظة © 2026 | تطوير ديشا هنتر</p>
 </footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-    AOS.init({ duration: 1000 });
-    var swiper = new Swiper(".mySwiper", {
-        effect: "coverflow", grabCursor: true, centeredSlides: true, slidesPerView: "auto",
-        autoplay: { delay: 2500 },
-        coverflowEffect: { rotate: 50, stretch: 0, depth: 100, modifier: 1, slideShadows: true },
-        pagination: { el: ".swiper-pagination" },
-    });
+    AOS.init({ duration: 1000, once: true });
+    
+    // سكريبت بسيط لتغيير لون النافبار عند السكرول
     window.onscroll = function() {
-        var nav = document.getElementById("navbar");
-        if (window.pageYOffset > 50) nav.classList.add("nav-blur");
-        else nav.classList.remove("nav-blur");
+        var nav = document.getElementById("mainNav");
+        if (window.pageYOffset > 100) { nav.style.background = "rgba(0,0,0,1)"; } 
+        else { nav.style.background = "rgba(0,0,0,0.9)"; }
     };
 </script>
 
