@@ -3,205 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MKM | للمقاولات الهندسية وأنظمة مكافحة الحريق</title>
+    <title>MKM | لأنظمة مكافحة الحريق والهندسة</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        fireRed: '#C8102E', // أحمر حريق هندسي مطفي
-                        ironDark: '#1A1F2C', // رمادي حديدي داكن فخم
-                        steelGray: '#2E3545',
+                        fireRed: '#D62222', // أحمر حريق واضح وسريع
+                        ironDark: '#111622', // رمادي حديدي غامق جداً وفخم
+                        steelGray: '#1B2333',
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
-        body { font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
-        .video-bg { object-fit: cover; width: 100vw; height: 100vh; position: absolute; top: 0; left: 0; z-index: -1; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        body { font-family: 'Cairo', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+<body class="bg-[#0B0F17] text-gray-200 overflow-x-hidden">
 
-    <header class="fixed w-full z-50 bg-ironDark/90 backdrop-blur-md border-b border-white/10">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-reverse space-x-3">
-                <span class="text-3xl font-black text-fireRed tracking-wider">MKM</span>
-                <div class="h-6 w-[2px] bg-white/20"></div>
-                <span class="text-xs text-gray-400 font-light leading-tight hidden sm:block">FIRE & ENGINEERING<br>SYSTEMS</span>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-ironDark/95 border-b border-white/5 backdrop-blur-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl font-black text-fireRed tracking-wider">MKM</span>
+                <span class="text-[10px] text-gray-400 font-light border-r border-white/20 pr-2 leading-tight hidden xs:block">FIRE & ENGINEERING<br>SYSTEMS</span>
             </div>
-            <nav class="hidden md:flex space-x-reverse space-x-8 text-white font-medium">
-                <a href="#home" class="hover:text-fireRed transition">الرئيسية</a>
-                <a href="#about" class="hover:text-fireRed transition">من نحن</a>
-                <a href="#services" class="hover:text-fireRed transition">خدماتنا</a>
-                <a href="#projects" class="hover:text-fireRed transition">مشاريعنا</a>
-                <a href="#contact" class="hover:text-fireRed transition">اتصل بنا</a>
-            </nav>
-            <a href="#contact" class="bg-fireRed text-white px-5 py-2 rounded-lg font-bold hover:bg-red-700 transition shadow-lg shadow-fireRed/30">اطلب مقايسة</a>
+            <div>
+                <a href="#contact" class="bg-fireRed text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-red-700 transition shadow-lg shadow-fireRed/20">اطلب مقايسة</a>
+            </div>
         </div>
     </header>
 
-    <section id="home" class="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
-        <video class="video-bg brightness-[0.35]" autoplay loop muted playsinline>
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-industrial-welder-working-on-a-metal-structure-41838-large.mp4" type="video/mp4">
-        </video>
-        
-        <div class="container mx-auto px-6 z-10" data-aos="zoom-in" data-aos-duration="1500">
-            <span class="bg-fireRed/20 border border-fireRed/50 text-fireRed px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-wider inline-block mb-6">MKM Fire & Engineering</span>
-            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+    <section class="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-ironDark via-[#0F1420] to-[#0B0F17]">
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-fireRed/10 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-900/10 rounded-full blur-[120px]"></div>
+
+        <div class="container mx-auto px-4 text-center z-10 py-12">
+            <span class="bg-fireRed/10 border border-fireRed/30 text-fireRed px-3 py-1 rounded-full text-xs font-bold inline-block mb-6">MKM Fire & Engineering</span>
+            <h1 class="text-3xl md:text-6xl font-black leading-tight text-white mb-6">
                 نحن لا نطفئ الحرائق..<br>
                 <span class="text-fireRed">نحن نمنعها من البداية</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 font-light">
+            <p class="text-sm md:text-lg text-gray-400 max-w-2xl mx-auto mb-10 font-light">
                 الشركة الرائدة في تصميم، تركيب، واعتماد غرف طلمبات الحريق وشبكات الرشاشات الأوتوماتيكية بأعلى معايير الأمان الدولية والكود المصري.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="#projects" class="w-full sm:w-auto bg-fireRed text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-red-700 transition transform hover:-translate-y-1 shadow-xl shadow-fireRed/20">استعرض مشاريعنا</a>
-                <a href="#services" class="w-full sm:w-auto bg-transparent border-2 border-white/50 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white hover:text-ironDark transition transform hover:-translate-y-1">خدماتنا الهندسية</a>
-            </div>
-        </div>
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <a href="#about" class="text-white/50 hover:text-white text-2xl"><i class="fa-solid fa-chevron-down"></i></a>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div class="space-y-6" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="flex items-center space-x-reverse space-x-2">
-                        <span class="h-[2px] w-10 bg-fireRed"></span>
-                        <span class="text-fireRed font-bold tracking-wider uppercase">عن MKM</span>
-                    </div>
-                    <h2 class="text-3xl md:text-4xl font-black text-ironDark">هندسة الأمان وحماية المنشآت الحيوية</h2>
-                    <p class="text-gray-600 leading-relaxed font-light text-lg">
-                        تأسست شركة <strong>MKM</strong> لتكون الشريك الهيدروليكي والهندسي الأول للمصانع والمنشآت. متخصصون في تصميم وتنفيذ الأنظمة المتكاملة لمكافحة الحريق، بدءاً من الحسابات الهيدروليكية المعقدة وحتى تسليم المشروع معتمداً من الدفاع المدني.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6 pt-4">
-                        <div class="border-r-4 border-fireRed pr-4">
-                            <h4 class="text-2xl font-black text-ironDark">100%</h4>
-                            <p class="text-sm text-gray-500">مطابقة للكود الدولي NFPA</p>
-                        </div>
-                        <div class="border-r-4 border-fireRed pr-4">
-                            <h4 class="text-2xl font-black text-ironDark">اعتماد رسمي</h4>
-                            <p class="text-sm text-gray-500">من الهيئة العامة للدفاع المدني</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="absolute -top-4 -right-4 w-full h-full border-2 border-fireRed/20 rounded-2xl z-0"></div>
-                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&w=800&q=80" alt="الهندسة" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[400px]">
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-sm mx-auto sm:max-w-none">
+                <a href="#projects" class="w-full sm:w-auto bg-fireRed text-white px-6 py-3.5 rounded-xl font-bold hover:bg-red-700 transition shadow-xl shadow-fireRed/20 text-center">استعرض مشاريعنا</a>
+                <a href="#services" class="w-full sm:w-auto bg-steelGray border border-white/10 text-white px-6 py-3.5 rounded-xl font-bold hover:bg-gray-800 transition text-center">خدماتنا الهندسية</a>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 bg-ironDark text-white relative overflow-hidden">
-        <div class="container mx-auto px-6">
-            <div class="text-center max-w-3xl mx-auto mb-20" data-aos="fade-up">
-                <span class="text-fireRed font-bold uppercase tracking-wider">ماذا نقدم؟</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-3">حلول هندسية متكاملة للسيفتي</h2>
+    <section id="services" class="py-20 bg-[#0F1420] border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-fireRed text-sm font-bold block mb-2">ماذا نقدم؟</span>
+                <h2 class="text-2xl md:text-4xl font-black text-white">أنظمة أمان وهندسة متكاملة</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-steelGray p-8 rounded-2xl border border-white/5 hover:border-fireRed/50 transition duration-300 group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-fireRed group-hover:text-white transition duration-300">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-faucet-drip"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">غرف طلمبات الحريق</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
-                        تصميم وتركيب غرف الطلمبات (ديزل - كهرباء - جوكي) وعمل اختبارات الأداء والتدفق طبقاً لـ NFPA 20.
+                    <h3 class="text-xl font-bold text-white mb-2">غرف طلمبات الحريق</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        تصميم وتركيب غرف الطلمبات المتكاملة (ديزل - كهرباء - جوكي) وعمل اختبارات الأداء طبقاً لـ NFPA 20.
                     </p>
                 </div>
-                <div class="bg-steelGray p-8 rounded-2xl border border-white/5 hover:border-fireRed/50 transition duration-300 group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-fireRed group-hover:text-white transition duration-300">
+                <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-fire-extinguisher"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">شبكات الرشاشات الأوتوماتيكية</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
-                        توزيع وشبكات شبكات الرشاشات (Wet & Dry Systems) للمخازن، المصانع، والمباني الإدارية بدقة هيدروليكية فائقة.
+                    <h3 class="text-xl font-bold text-white mb-2">شبكات الرشاشات</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        تركيب وتوزيع شبكات الرشاشات الأوتوماتيكية للمخازن والمصانع بدقة هيدروليكية عالية مطابقة للدفاع المدني.
                     </p>
                 </div>
-                <div class="bg-steelGray p-8 rounded-2xl border border-white/5 hover:border-fireRed/50 transition duration-300 group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-fireRed group-hover:text-white transition duration-300">
+                <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-calculator"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-4">الحسابات الهيدروليكية</h3>
-                    <p class="text-gray-400 font-light leading-relaxed">
-                        عمل التقارير الهندسية وحسابات الفقد في الضغوط باستخدام أحدث البرامج لضمان كفاءة التدفق وقت الطوارئ.
+                    <h3 class="text-xl font-bold text-white mb-2">حسابات هيدروليكية</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        عمل التقارير الهندسية وحسابات الفقد في الضغوط باستخدام أحدث البرامج لضمان كفاءة شبكة الحريق كاملة.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-24 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16" data-aos="fade-left">
-                <div>
-                    <span class="text-fireRed font-bold uppercase tracking-wider">معرض أعمالنا</span>
-                    <h2 class="text-3xl md:text-4xl font-black text-ironDark mt-2">مشاريع تفخر MKM بتنفيذها</h2>
-                </div>
-                <p class="text-gray-500 max-w-md font-light mt-4 md:mt-0">شاهد جودة التقفيل الهندسي، وترتيب المواسير، وعزل غرف الطلمبات التي قمنا بتسليمها.</p>
+    <section id="projects" class="py-20 bg-[#0B0F17]">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <span class="text-fireRed text-sm font-bold block mb-2">معرض أعمالنا</span>
+                <h2 class="text-2xl md:text-4xl font-black text-white">مشاريع تم تسليمها بنجاح</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="relative h-64 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80" alt="غرفة طلمبات أكتوبر" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-fireRed text-white px-3 py-1 rounded-md text-xs font-bold">غرف طلمبات</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-steelGray p-4 rounded-2xl border border-white/5">
+                    <div class="h-48 bg-gray-900 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80" alt="مشروع">
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-ironDark mb-2">غرفة طلمبات مصنع أكتوبر للمواد الغذائية</h4>
-                        <p class="text-gray-500 text-sm font-light">تم التركيب والربط مع شبكة الرشاشات الخارجية والتسليم للدفاع المدني.</p>
-                    </div>
+                    <h4 class="text-lg font-bold text-white">تركيب وتجهيز غرفة طلمبات مصنع أكتوبر</h4>
+                    <p class="text-gray-400 text-xs font-light mt-1">توصيل وربط خطوط السحب والطرد واختبار الشبكة بالكامل.</p>
                 </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="relative h-64 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" alt="شبكة حريق العاصمة" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-fireRed text-white px-3 py-1 rounded-md text-xs font-bold">شبكات رشاشات</span>
+                <div class="bg-steelGray p-4 rounded-2xl border border-white/5">
+                    <div class="h-48 bg-gray-900 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80" alt="مشروع">
                     </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-ironDark mb-2">شبكة حريق وتغذية مخازن العاصمة الإدارية</h4>
-                        <p class="text-gray-500 text-sm font-light">تركيب أكثر من 5000 رأس رشاش ذكي مع نظام الإنذار المبكر.</p>
-                    </div>
-                </div>
-                <div class="bg-white rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="relative h-64 bg-gray-200">
-                        <img src="https://images.unsplash.com/photo-1508450859948-4e04fabaa4ea?auto=format&fit=crop&w=600&q=80" alt="تجهيز هيدروليكي" class="w-full h-full object-cover">
-                        <span class="absolute top-4 right-4 bg-fireRed text-white px-3 py-1 rounded-md text-xs font-bold">استشارات واعتمادات</span>
-                    </div>
-                    <div class="p-6">
-                        <h4 class="text-xl font-bold text-ironDark mb-2">اعتماد وتطوير نظام حريق مول التجمع</h4>
-                        <p class="text-gray-500 text-sm font-light">إعادة هيكلة الحسابات الهيدروليكية لرفع كفاءة ضغط الخروج لـ 12 بار.</p>
-                    </div>
+                    <h4 class="text-lg font-bold text-white">شبكة رشاشات مجمع مخازن العاصمة الإدارية</h4>
+                    <p class="text-gray-400 text-xs font-light mt-1">تجهيز وتوزيع شبكة الرشاشات السقفية بمواصفات الكود الدولي.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div class="bg-gray-50 p-8 md:p-12 rounded-3xl border border-gray-100 shadow-sm" data-aos="fade-left">
-                    <h3 class="text-3xl font-black text-ironDark mb-2">ابدأ تأمين منشأتك اليوم</h3>
-                    <p class="text-gray-500 font-light mb-8">سيب بياناتك ومهندسينا هيتواصلوا معاك لعمل المعاينة الميدانية مجاناً.</p>
-                    
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label class="text-sm font-bold text-gray-700 block mb-2">الاسم بالكامل</label>
-                                <input type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-fireRed transition bg-white" placeholder="مصطفى محمد">
-                            </div>
-                            <div>
-                                <label class="text-sm font-bold text-gray-700 block mb-2">رقم الهاتف</label>
-                                <input type="tel" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:border-fireRed transition bg-white" placeholder="0123456789">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="text-sm font-bold text-gray-700 block mb-2">
+    <section id="contact" class="py-20 bg-[#0F1420] border-t border-white/5">
+        <div class="container mx-auto px-4 max-w-xl">
+            <div class="text-center mb-10">
+                <h3 class="text-2xl font-black text-white mb-2">ابدأ تأمين منشأتك الآن</h3>
+                <p class="text-gray-400 text-sm font-light">سيب بياناتك ومهندسينا هيتواصلوا معاك لعمل المعاينة مجاناً.</p>
+            </div>
+            
+            <form class="space-y-4 bg-steelGray p-6 rounded-2xl border border-white/5">
+                <div>
+                    <label class="text-xs font-bold text-gray-300 block mb-1">الاسم بالكامل</label>
+                    <input type="text" class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-
