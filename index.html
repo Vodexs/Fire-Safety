@@ -11,8 +11,8 @@
             theme: {
                 extend: {
                     colors: {
-                        fireRed: '#D62222', // أحمر حريق واضح وسريع
-                        ironDark: '#111622', // رمادي حديدي غامق جداً وفخم
+                        fireRed: '#D62222', 
+                        ironDark: '#111622', 
                         steelGray: '#1B2333',
                     }
                 }
@@ -20,7 +20,7 @@
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght=400;600;700;900&display=swap');
         body { font-family: 'Cairo', sans-serif; }
     </style>
 </head>
@@ -130,7 +130,53 @@
                 <p class="text-gray-400 text-sm font-light">سيب بياناتك ومهندسينا هيتواصلوا معاك لعمل المعاينة مجاناً.</p>
             </div>
             
-            <form class="space-y-4 bg-steelGray p-6 rounded-2xl border border-white/5">
+            <form id="mkmContactForm" class="space-y-4 bg-steelGray p-6 rounded-2xl border border-white/5">
                 <div>
                     <label class="text-xs font-bold text-gray-300 block mb-1">الاسم بالكامل</label>
-                    <input type="text" class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-
+                    <input type="text" id="clientName" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm" placeholder="مصطفى محمد">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-300 block mb-1">رقم الهاتف</label>
+                    <input type="tel" id="clientPhone" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm text-right" placeholder="0123456789">
+                </div>
+                <div>
+                    <label class="text-xs font-bold text-gray-300 block mb-1">اسم الشركة</label>
+                    <input type="text" id="clientCompany" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm" placeholder="شركة...">
+                </div>
+                <button type="submit" class="w-full bg-fireRed text-white py-3 rounded-xl font-bold text-sm hover:bg-red-700 transition shadow-lg shadow-fireRed/20 mt-2">إرسال الطلب للمراجعة</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-[#0B0F17] text-gray-500 py-6 text-center border-t border-white/5 text-xs font-light">
+        <p>جميع الحقوق محفوظة &copy; 2026 لشركة MKM. تم التطوير بواسطة <span class="text-white font-bold">Desha</span>.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mkmContactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // يمنع إعادة تحميل الصفحة
+            
+            // لقط البيانات من الحقول
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const company = document.getElementById('clientCompany').value;
+            
+            // ⚠️ زتونة الواتساب: غير الرقم ده لرقم مكتب MKM الحقيقي (بالصيغة الدولية بدون أصفار في الأول)
+            const officeWhatsApp = "201029596649"; 
+            
+            // صياغة الرسالة اللي هتروح للمكتب
+            const messageText = `🔥 طلب معاينة جديد لشركة MKM:\n\n` +
+                                `👤 الاسم: ${name}\n` +
+                                `📞 الهاتف: ${phone}\n` +
+                                `🏢 الشركة: ${company}`;
+            
+            // تشفير النص عشان يفتح في المتصفح صح
+            const encodedMessage = encodeURIComponent(messageText);
+            
+            // فتح لينك الواتساب المباشر في صفحة جديدة
+            window.open(`https://wa.me/${officeWhatsApp}?text=${encodedMessage}`, '_blank');
+        });
+    </script>
+
+</body>
+</html>
