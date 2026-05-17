@@ -27,15 +27,10 @@
 <body class="bg-[#0B0F17] text-gray-200 overflow-x-hidden">
 
     <header class="fixed top-0 left-0 right-0 z-50 bg-ironDark/95 border-b border-white/5 backdrop-blur-md">
-        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 rounded-full border-2 border-fireRed/50 overflow-hidden bg-white/5 flex items-center justify-center shadow-lg shadow-fireRed/10">
-                    <img src="logo.png" alt="IMG-20260504-WA0022.jpg" class="w-full h-full object-cover">
-                </div>
-                <div class="flex flex-col">
-                    <span class="text-xl font-black text-white tracking-wider leading-none">MKM</span>
-                    <span class="text-[9px] text-gray-400 font-light border-r border-white/20 pr-2 mt-1 leading-tight">FIRE & ENGINEERING</span>
-                </div>
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black text-fireRed tracking-wider">MKM</span>
+                <span class="text-[10px] text-gray-400 font-light border-r border-white/20 pr-2 leading-tight hidden xs:block">FIRE & ENGINEERING</span>
             </div>
             <div>
                 <a href="#contact" class="bg-fireRed text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-red-700 transition shadow-lg shadow-fireRed/20">اطلب مقايسة</a>
@@ -43,12 +38,19 @@
         </div>
     </header>
 
-    <section class="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-b from-ironDark via-[#0F1420] to-[#0B0F17]">
+    <section class="relative min-h-screen flex items-center justify-center pt-24 bg-gradient-to-b from-ironDark via-[#0F1420] to-[#0B0F17]">
         <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-fireRed/10 rounded-full blur-[120px]"></div>
         <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-900/10 rounded-full blur-[120px]"></div>
 
         <div class="container mx-auto px-4 text-center z-10 py-12">
-            <span class="bg-fireRed/10 border border-fireRed/30 text-fireRed px-3 py-1 rounded-full text-xs font-bold inline-block mb-6">MKM Fire & Engineering</span>
+            
+            <div class="flex flex-col items-center justify-center mb-4">
+                <div class="w-20 h-20 rounded-full border-2 border-fireRed/50 overflow-hidden bg-white p-1 shadow-2xl shadow-fireRed/20 mb-4">
+                    <img src="IMG-20260504-WA0022.jpg" alt="MKM Logo" class="w-full h-full object-contain rounded-full">
+                </div>
+                <span class="bg-fireRed/10 border border-fireRed/30 text-fireRed px-4 py-1 rounded-full text-xs font-bold inline-block">MKM Fire & Engineering</span>
+            </div>
+
             <h1 class="text-3xl md:text-6xl font-black leading-tight text-white mb-6">
                 نحن لا نطفئ الحرائق..<br>
                 <span class="text-fireRed">نحن نمنعها من البداية</span>
@@ -81,4 +83,37 @@
                     </p>
                 </div>
                 <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
-                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">شبكات الرشاشات</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        تركيب وتوزيع شبكات الرشاشات الأوتوماتيكية للمخازن والمصانع بدقة هيدروليكية عالية مطابقة للدفاع المدني.
+                    </p>
+                </div>
+                <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">حسابات هيدروليكية</h3>
+                    <p class="text-gray-400 text-sm font-light leading-relaxed">
+                        عمل التقارير الهندسية وحسابات الفقد في الضغوط باستخدام أحدث البرامج لضمان كفاءة شبكة الحريق كاملة.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-[#0B0F17]">
+        <div class="container mx-auto px-4">
+            <div class="mb-12">
+                <span class="text-fireRed text-sm font-bold block mb-2">معرض أعمالنا</span>
+                <h2 class="text-2xl md:text-4xl font-black text-white">مشاريع تم تسليمها بنجاح</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-steelGray p-4 rounded-2xl border border-white/5">
+                    <div class="h-48 bg-gray-900 rounded-xl mb-4 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80" alt="مشروع">
+                    </div>
+                    <h4 class="text-lg font-bold text-white">تركيب وتجهيز غرفة طلمبات مص
