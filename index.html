@@ -27,10 +27,15 @@
 <body class="bg-[#0B0F17] text-gray-200 overflow-x-hidden">
 
     <header class="fixed top-0 left-0 right-0 z-50 bg-ironDark/95 border-b border-white/5 backdrop-blur-md">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <span class="text-2xl font-black text-fireRed tracking-wider">MKM</span>
-                <span class="text-[10px] text-gray-400 font-light border-r border-white/20 pr-2 leading-tight hidden xs:block">FIRE & ENGINEERING<br>SYSTEMS</span>
+                <div class="w-12 h-12 rounded-full border-2 border-fireRed/50 overflow-hidden bg-white/5 flex items-center justify-center shadow-lg shadow-fireRed/10">
+                    <img src="logo.png" alt="MKM Logo" class="w-full h-full object-cover">
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-black text-white tracking-wider leading-none">MKM</span>
+                    <span class="text-[9px] text-gray-400 font-light border-r border-white/20 pr-2 mt-1 leading-tight">FIRE & ENGINEERING</span>
+                </div>
             </div>
             <div>
                 <a href="#contact" class="bg-fireRed text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-red-700 transition shadow-lg shadow-fireRed/20">اطلب مقايسة</a>
@@ -76,107 +81,4 @@
                     </p>
                 </div>
                 <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
-                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-fire-extinguisher"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">شبكات الرشاشات</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed">
-                        تركيب وتوزيع شبكات الرشاشات الأوتوماتيكية للمخازن والمصانع بدقة هيدروليكية عالية مطابقة للدفاع المدني.
-                    </p>
-                </div>
-                <div class="bg-steelGray p-6 rounded-2xl border border-white/5 hover:border-fireRed/30 transition">
-                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-calculator"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-2">حسابات هيدروليكية</h3>
-                    <p class="text-gray-400 text-sm font-light leading-relaxed">
-                        عمل التقارير الهندسية وحسابات الفقد في الضغوط باستخدام أحدث البرامج لضمان كفاءة شبكة الحريق كاملة.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-20 bg-[#0B0F17]">
-        <div class="container mx-auto px-4">
-            <div class="mb-12">
-                <span class="text-fireRed text-sm font-bold block mb-2">معرض أعمالنا</span>
-                <h2 class="text-2xl md:text-4xl font-black text-white">مشاريع تم تسليمها بنجاح</h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-steelGray p-4 rounded-2xl border border-white/5">
-                    <div class="h-48 bg-gray-900 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7eed?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80" alt="مشروع">
-                    </div>
-                    <h4 class="text-lg font-bold text-white">تركيب وتجهيز غرفة طلمبات مصنع أكتوبر</h4>
-                    <p class="text-gray-400 text-xs font-light mt-1">توصيل وربط خطوط السحب والطرد واختبار الشبكة بالكامل.</p>
-                </div>
-                <div class="bg-steelGray p-4 rounded-2xl border border-white/5">
-                    <div class="h-48 bg-gray-900 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80" class="w-full h-full object-cover opacity-80" alt="مشروع">
-                    </div>
-                    <h4 class="text-lg font-bold text-white">شبكة رشاشات مجمع مخازن العاصمة الإدارية</h4>
-                    <p class="text-gray-400 text-xs font-light mt-1">تجهيز وتوزيع شبكة الرشاشات السقفية بمواصفات الكود الدولي.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-20 bg-[#0F1420] border-t border-white/5">
-        <div class="container mx-auto px-4 max-w-xl">
-            <div class="text-center mb-10">
-                <h3 class="text-2xl font-black text-white mb-2">ابدأ تأمين منشأتك الآن</h3>
-                <p class="text-gray-400 text-sm font-light">سيب بياناتك ومهندسينا هيتواصلوا معاك لعمل المعاينة مجاناً.</p>
-            </div>
-            
-            <form id="mkmContactForm" class="space-y-4 bg-steelGray p-6 rounded-2xl border border-white/5">
-                <div>
-                    <label class="text-xs font-bold text-gray-300 block mb-1">الاسم بالكامل</label>
-                    <input type="text" id="clientName" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm" placeholder="مصطفى محمد">
-                </div>
-                <div>
-                    <label class="text-xs font-bold text-gray-300 block mb-1">رقم الهاتف</label>
-                    <input type="tel" id="clientPhone" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm text-right" placeholder="0123456789">
-                </div>
-                <div>
-                    <label class="text-xs font-bold text-gray-300 block mb-1">اسم الشركة</label>
-                    <input type="text" id="clientCompany" required class="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#0B0F17] text-white focus:outline-none focus:border-fireRed transition text-sm" placeholder="شركة...">
-                </div>
-                <button type="submit" class="w-full bg-fireRed text-white py-3 rounded-xl font-bold text-sm hover:bg-red-700 transition shadow-lg shadow-fireRed/20 mt-2">إرسال الطلب للمراجعة</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="bg-[#0B0F17] text-gray-500 py-6 text-center border-t border-white/5 text-xs font-light">
-        <p>جميع الحقوق محفوظة &copy; 2026 لشركة MKM. تم التطوير بواسطة <span class="text-white font-bold">Desha</span>.</p>
-    </footer>
-
-    <script>
-        document.getElementById('mkmContactForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // يمنع إعادة تحميل الصفحة
-            
-            // لقط البيانات من الحقول
-            const name = document.getElementById('clientName').value;
-            const phone = document.getElementById('clientPhone').value;
-            const company = document.getElementById('clientCompany').value;
-            
-            // ⚠️ زتونة الواتساب: غير الرقم ده لرقم مكتب MKM الحقيقي (بالصيغة الدولية بدون أصفار في الأول)
-            const officeWhatsApp = "201029596649"; 
-            
-            // صياغة الرسالة اللي هتروح للمكتب
-            const messageText = `🔥 طلب معاينة جديد لشركة MKM:\n\n` +
-                                `👤 الاسم: ${name}\n` +
-                                `📞 الهاتف: ${phone}\n` +
-                                `🏢 الشركة: ${company}`;
-            
-            // تشفير النص عشان يفتح في المتصفح صح
-            const encodedMessage = encodeURIComponent(messageText);
-            
-            // فتح لينك الواتساب المباشر في صفحة جديدة
-            window.open(`https://wa.me/${officeWhatsApp}?text=${encodedMessage}`, '_blank');
-        });
-    </script>
-
-</body>
-</html>
+                    <div class="w-12 h-12 bg-fireRed/10 text-fireRed rounded-xl flex items-center justify-center text-
